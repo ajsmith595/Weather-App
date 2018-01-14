@@ -350,8 +350,6 @@ $(document).ready(function(){
                  success: function(data){
                      //position.coords.latitude  position.coords.longitude;
                      dataG = data;
-                     console.log(data);
-
                      $("#main-weather").html(data.current.condition.text.toUpperCase());
                      if(unit === 0){
                          $('#temptext').html(data.current.temp_c + "&#176;C");
@@ -381,8 +379,7 @@ $(document).ready(function(){
 
     }
 
-    $('.btn').click(function(){
-        console.log("Click");
+    $('.btn').click(function(){        
         if(unit === 0){
             unit = 1;
         }
