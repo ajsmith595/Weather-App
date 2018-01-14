@@ -2,14 +2,52 @@
 <html>
 <head>
     <title>Weather App!</title>
-    <link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
 
 </head>
 <body>
+    <div class="jumbotron">
+        <h1 class="text-center change-color-text">WEATHER APP</h1>
+        <h3 class="text-center change-color-text">MADE BY <a href="https://ajsmith595.github.io/Portfolio/">ADAM SMITH</a></h3>
+
+        <div class="weather-div text-center">
+            <h1 id="main-weather" class="change-color-text"></h1>
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-2">
+                    <h1 class="change-color-text" id="temptext">0&#176;C</h1>
+                    <h3 class="change-color-text">TEMPERATURE</h3>
+                </div>
+                <div class="col-xs-2">
+                    <h1 class="change-color-text" id="humidtext">0%</h1>
+                    <h3 class="change-color-text">HUMIDITY</h3>
+                </div>
+                <div class="col-xs-2">
+                    <img id="weather-icon" class="img-responsive"></img>
+                </div>
+                <div class="col-xs-2">
+                    <h1 class="change-color-text" id="windspeedtext">0kph</h1>
+                    <h3 class="change-color-text">WINDSPEED</h3>
+                </div>
+                <div class="col-xs-2">
+                    <h1 class="change-color-text" id="pressuretext">0mb</h1>
+                    <h3 class="change-color-text">PRESSURE</h3>
+                </div>
+                <div class="col-xs-1"></div>
+
+            </div>
+        </div>
+
+        <div class="controller-div text-center">
+            <button class="btn btn-info">CELCIUS | FARENHEIT</button>
+        </div>
+    </div>
 
 
-    <script src="../jquery.min.js"></script>
+
+    <script src="jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
     <script src="main.js"></script>
 </body>
 

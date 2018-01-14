@@ -1,0 +1,26 @@
+@font-face{
+    font-family: Roadway;
+    src: url("ROADWAY_.ttf");
+}
+
+
+.jumbotron h1, .jumbotron h3, .jumbotron h2, .controller-div button{
+    font-family: Roadway;
+}
+
+.jumbotron h3 a{
+    text-decoration: none;
+}
+
+.controller-div{
+    /*margin-top: 10%;*/
+}
+#weather-icon{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.btn:focus{
+    outline: 0 !important;
+}

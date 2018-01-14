@@ -1,4 +1,4 @@
-var conditions = [
+[
     {
         "code": 1000,
         "iconurld": "Sun.svg",
@@ -16,7 +16,7 @@ var conditions = [
     {
         "code": 1006,
         "iconurld": "Cloud.svg",
-        "iconurln": "Cloud.svg",
+        "iconurln": "Cloud-Moon.svg",
         "colord": "b2b2b2",
         "colorn": "000040"
     },
@@ -337,91 +337,4 @@ var conditions = [
     },
 
 
-];
-var dataG;
-var unit = 0;
-
-$(document).ready(function(){
-    if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(function(position) {
-             $.ajax({
-                 url: "https://api.apixu.com/v1/current.json?key=b864aac56d5848c6885153821181401&q=" + position.coords.latitude + "," + position.coords.longitude,
-                 type: "GET",
-                 success: function(data){
-                     //position.coords.latitude  position.coords.longitude;
-                     dataG = data;
-                     console.log(data);
-
-                     $("#main-weather").html(data.current.condition.text.toUpperCase());
-                     if(unit === 0){
-                         $('#temptext').html(data.current.temp_c + "&#176;C");
-                     }
-                     else{
-                         $('#temptext').html(data.current.temp_f + "&#176;F");
-                     }
-                     $('#humidtext').html(data.current.humidity + "%");
-                     $('#windspeedtext').html(data.current.wind_kph + "kph");
-                     $('#pressuretext').html(data.current.pressure_mb + "mb");
-                     var condition = conditions.find(testForCode);
-                     if(data.current.is_day == 1){
-                         $(".jumbotron").animate({'background-color': "#" + condition.colord}, 1000);
-                         $("#weather-icon").attr("src", "SVG/" + condition.iconurld);
-                         $(".change-color-text").animate({'color': "#" + getTextColor(condition.colord)}, 1000);
-                     }
-                     else{
-                         $(".jumbotron").animate({'background-color': "#" + condition.colorn}, 1000);
-                         $("#weather-icon").attr("src", "SVG/" + condition.iconurln);
-                         $(".change-color-text").animate({'color': "#" + getTextColor(condition.colorn)}, 1000);
-                     }
-
-
-                 }
-             });
-        });
-
-    }
-
-    $('.btn').click(function(){
-        console.log("Click");
-        if(unit === 0){
-            unit = 1;
-        }
-        else{
-            unit = 0;
-
-        }
-        if(dataG != undefined){
-            if(unit === 0){
-                $('#temptext').html(dataG.current.temp_c + "&#176;C");
-            }
-            else{
-                $('#temptext').html(dataG.current.temp_f + "&#176;F");
-            }
-        }
-
-    });
-
-});
-
-function getTextColor(c){
-    var r = c.substr(0, 2).toString();
-    var g = c.substr(2, 2).toString();
-    var b = c.substr(4, 2).toString();
-
-    if(parseInt(r, 16) + parseInt(g, 16) + parseInt(b, 16) > 255/2){
-        return "000000";
-    }
-    else{
-        return "ffffff";
-    }
-}
-
-
-function testForCode(e){
-    if(e.code == dataG.current.condition.code){
-        return true;
-    }
-    else{
-        return false;
-    }
-}
+]
