@@ -358,7 +358,7 @@ $(document).ready(function(){
                          $('#temptext').html(data.current.temp_f + "&#176;F");
                      }
                      $('#humidtext').html(data.current.humidity + "%");
-                     $('#windspeedtext').html(data.current.wind_kph + "kph");
+                     $('#windspeedtext').html(data.current.wind_kph + "kmph");
                      $('#pressuretext').html(data.current.pressure_mb + "mb");
                      var condition = conditions.find(testForCode);
                      if(data.current.is_day == 1){
@@ -379,7 +379,7 @@ $(document).ready(function(){
 
     }
 
-    $('.btn').click(function(){        
+    $('.btn').click(function(){
         if(unit === 0){
             unit = 1;
         }
